@@ -34,6 +34,7 @@ export const ResultAnalysis: React.FC = () => {
   const [visibleCards, setVisibleCards] = useState(5);
   const [timedOut, setTimedOut] = useState(false);
 
+  const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
   const handleUpdate = useCallback((task_id : string) => {
     const result = localStorage.getItem(task_id);
@@ -74,6 +75,7 @@ export const ResultAnalysis: React.FC = () => {
             task_id,
           );
           handleUpdate(task_id)
+          delay(4000)
         }
         if (isMounted) {
           // console.log(result)

@@ -80,6 +80,7 @@ export const FactCheckingService = {
   
           // Cache the result
           if (task_id) {
+            await new Promise(f => setTimeout(f, 3000));
             localStorage.setItem(task_id, JSON.stringify(factCheckOutputDict))
             console.log(`Cached result for task_id: ${task_id}`);
           }
