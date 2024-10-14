@@ -69,7 +69,7 @@ export const ResultAnalysis: React.FC = () => {
       }
 
       try {
-        for(let i = 0; i <= 3; i++){
+        for(let i = 0; i <= 15; i++){
           await FactCheckingService.getFactCheckResult(
             task_id,
           );
