@@ -79,7 +79,7 @@ export const ConnectWallet = ({ closeForm }: ConnectWalletType) => {
     navigate("/dashboard");
   }
 
-  const isStakeValueValid = stakeInputValue && parseFloat(stakeInputValue) > 0.37;
+  const isStakeValueValid = stakeInputValue && parseFloat(stakeInputValue) > 0;
 
 
 
