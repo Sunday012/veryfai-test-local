@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Dispatch, SetStateAction} from 'react';
 import { Input } from "@/components/ui/input";
 
 const ETH_TO_USD_RATE = 2700; // Example rate, you might want to fetch this dynamically
 const MINIMUM_STAKE = 0.37;
 
 type EthStakeType = {
-    setStakeInputValue: (value : string) => void
+    setStakeInputValue: Dispatch<SetStateAction<string | undefined>>
 }
 
 export const EthStakeInput = ({setStakeInputValue} : EthStakeType) => {
@@ -33,8 +33,8 @@ export const EthStakeInput = ({setStakeInputValue} : EthStakeType) => {
   }, [inputValue]);
 
   const handleInputChange = (e : any) => {
-    setInputValue(e.target.value);
-    setStakeInputValue(e.target.value);
+      setInputValue(e.target.value);
+      setStakeInputValue(e.target.value);
   };
 
   return (

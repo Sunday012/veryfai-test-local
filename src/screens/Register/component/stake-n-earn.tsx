@@ -1,39 +1,39 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+// import { useState } from "react";
+// import { Button } from "@/components/ui/button";
 import { CloseButton } from "../Register-login";
-import Spinner from "@/components/loader/loading-spinner";
-import { EthStakeInput } from "./eth-stake-input";
+// import Spinner from "@/components/loader/loading-spinner";
+// import { EthStakeInput } from "./eth-stake-input";
 import { ReadMoreText } from "@/components/read-more-text/read-more-text";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 type StakeType = {
   closeForm: () => void;
 };
 
 export const StakeNEarn = ({ closeForm }: StakeType) => {
-    const navigate = useNavigate()
-  const [stakeInputValue, setStakeInputValue] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+    // const navigate = useNavigate()
+  // const [stakeInputValue, setStakeInputValue] = useState<string | null>(null);
+  // const [isLoading, setIsLoading] = useState(false);
 
-  const handleStaked = () => {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      navigate("/dashboard");
-    }, 4000);
-  };
+  // const handleStaked = () => {
+  //   setIsLoading(true);
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //     navigate("/dashboard");
+  //   }, 4000);
+  // };
 
-  const handleDone = () => {
-    navigate("/dashboard");
-  }
+  // const handleDone = () => {
+  //   navigate("/dashboard");
+  // }
 
-  const isStakeValueValid = stakeInputValue && parseFloat(stakeInputValue) > 0.37;
+  // const isStakeValueValid = stakeInputValue && parseFloat(stakeInputValue) > 0.37;
 
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4">
       <div className="bg-white flex flex-col items-center rounded-3xl w-full max-w-[calc(100vw-2rem)] sm:max-w-md lg:max-w-lg xl:max-w-xl max-h-[calc(100vh-2rem)] relative ">
-      {isLoading && (
+      {/* {isLoading && (
           <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center rounded-xl z-10">
             <div className="bg-white rounded-3xl py-6 px-8 flex flex-col items-center">
                 <img src="/confetti.svg" alt="" />
@@ -41,7 +41,7 @@ export const StakeNEarn = ({ closeForm }: StakeType) => {
                 <Button onClick={handleDone} className="w-full rounded-[12px] py-6 bg-[#1E90FF] hover:bg-[#1E90FF] text-[20px] font-semibold uppercase mt-8">Done</Button>
             </div>
           </div>
-        )}
+        )} */}
         <div
           className="bg-[#1E90FF] rounded-2xl text-white flex items-center justify-center w-[83px] h-[31px] absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50"
         >
@@ -71,19 +71,19 @@ export const StakeNEarn = ({ closeForm }: StakeType) => {
             </div>
             <div className="flex flex-col mt-4 sm:mt-6">
               <h1 className="text-lg sm:text-xl font-semibold pb-2">Stake</h1>
-              <EthStakeInput setStakeInputValue={setStakeInputValue} />
+              {/* <EthStakeInput setStakeInputValue={setStakeInputValue} /> */}
             </div>
-            <Button
+            {/* <Button
               disabled={!isStakeValueValid || isLoading}
               className={`uppercase w-full rounded-[12px] ${
                 !isStakeValueValid || isLoading
                   ? "bg-[#9CA3AF] hover:bg-[#9CA3AF]"
                   : "bg-[#1E90FF] hover:bg-[#1E90FF]"
               } h-[40px] sm:h-[48px] lg:h-[56px] text-sm sm:text-base lg:text-lg font-semibold mt-4 sm:mt-6 mb-2`}
-              onClick={handleStaked}
+              onClick={handleStake}
             >
               {isLoading ? <Spinner /> : "Stake"}
-            </Button>
+            </Button> */}
           </div>
         </div>
         </div>
@@ -92,4 +92,4 @@ export const StakeNEarn = ({ closeForm }: StakeType) => {
   );
 };
 
-const longText = `To earn rewards, you must stake your token before performing tasks. This incentivizes participation and ensures commitment, as staking locks in your tokens, giving you the opportunity to gain additional rewards upon task completion.`;
+export const longText = `To earn rewards, you must stake your token before performing tasks. This incentivizes participation and ensures commitment, as staking locks in your tokens, giving you the opportunity to gain additional rewards upon task completion.`;

@@ -94,14 +94,30 @@ export const Navbar = () => {
         } sm:gap-16 gap-4 px-10`}
       >
         <div className="w-full flex flex-col md:flex-row items-center gap-4">
-          {/* Conditional Rendering for Logo Animation */}
           {isLogoVisible && (
-            <div
-              className={`transition-all duration-1000 ease-in-out ${
-                isLogoVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
-              }`}
-            >
-              <Logo />
+            <div className="flex items-center justify-between w-full md:w-fit">
+              {/* Conditional Rendering for Logo Animation */}
+
+              <div
+                className={`transition-all duration-1000 ease-in-out ${
+                  isLogoVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+                }`}
+              >
+                <Logo />
+              </div>
+
+              <div className="lg:bg-[#29457D] px-6 rounded-md md:hidden">
+                <div
+                  role="button"
+                  className="flex text-white items-center gap-2  px-4 py-2 rounded-md"
+                  onClick={handleVerifierClick}
+                >
+                  <img src="/money.svg" alt="" />
+                  <p className="text-[20px] hidden lg:flex text-nowrap">
+                    Earn as a Fact-checker
+                  </p>
+                </div>
+              </div>
             </div>
           )}
 
@@ -133,14 +149,17 @@ export const Navbar = () => {
           </div>
         </div>
 
-        <div className="bg-[#29457D] px-6 rounded-md hidden lg:flex">
-          <button
+        <div className="lg:bg-[#29457D] lg:px-6 px-2 rounded-md hidden md:flex">
+          <div
+             role="button"
             className="flex text-white items-center gap-2  px-4 py-2 rounded-md"
             onClick={handleVerifierClick}
           >
-            <img src="/money.svg" alt="" />
-            <p className="text-[20px] text-nowrap">Earn as a Fact-checker</p>
-          </button>
+            <img src="/money.svg" alt="" className="w-[24px] h-[24px]" />
+            <p className="text-[20px] lg:flex hidden text-nowrap">
+              Earn as a Fact-checker
+            </p>
+          </div>
         </div>
       </nav>
     </header>

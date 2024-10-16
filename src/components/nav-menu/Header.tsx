@@ -2,15 +2,14 @@
 import { Logo } from "../logo/logo";
 // import { Button } from "../ui/button";
 // import { Input } from "../ui/input";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSearchStore } from "@/zustand/search-store";
 // import { useNavigate } from "react-router-dom";
 // import { FactCheckingService } from "@/api/api-service/FactCheck";
 
 export const Header = () => {
   const { setShowVerifierForm } = useSearchStore();
-  const [isLogoVisible, setIsLogoVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+
   //@ts-ignore
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 //   const [isLoading, setIsLoading] = useState(false);
@@ -54,54 +53,26 @@ export const Header = () => {
 //     }
 //   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
 
-      if (window.innerWidth <= 640) {
-        if (currentScrollY > lastScrollY) {
-          setIsLogoVisible(false);
-        }
-
-        if (currentScrollY === 0) {
-          setIsLogoVisible(true);
-        }
-      } else {
-        setIsLogoVisible(true);
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
 
   return (
-    <header className="w-full flex items-center z-50">
+    <header className="w-full flex pt-4 items-center z-50">
       <nav
-        className={`w-full flex flex-col sm:flex-row items-center justify-between ${
-          isLogoVisible ? "p-4" : "p-2"
-        } sm:gap-16 gap-4 px-10`}
+        className={`w-full flex flex-row items-center justify-between p-2 sm:gap-16 gap-4 px-10`}
       >
         {/* Conditional Rendering for Logo Animation */}
-        {isLogoVisible && (
           <div
-            className={`transition-all duration-1000 ease-in-out ${
-              isLogoVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
-            }`}
+            className={`transition-all duration-1000 ease-in-out`}
           >
             <Logo />
           </div>
-        )}
 
         <button 
-          className="flex text-white items-center gap-2 bg-[#29457D] px-4 py-2 rounded-md"
+          className="flex text-white items-center gap-2 lg:bg-[#29457D] px-4 py-2 rounded-md"
           onClick={handleVerifierClick}
         >
           <img src="/money.svg" alt="" />
-          <p className="text-[20px]">Earn as a Fact-checker</p>
+          <p className="text-[20px] hidden lg:flex">Earn as a Fact-checker</p>
         </button>
 
         {/* Input Field Animation */}

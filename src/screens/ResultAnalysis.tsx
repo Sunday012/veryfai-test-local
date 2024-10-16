@@ -15,6 +15,7 @@ import { IoClose } from "react-icons/io5";
 import NoStatementsGraphic from "@/components/no-statement-graphic/no-statement-graphic";
 import { BetaBanner } from "@/components/beta-banner/beta-banner";
 import { NoResult } from "@/components/no-statement-graphic/no-search";
+import { SponsoredAd } from "@/components/sponsored-ad/sponsored-ad";
 
 interface FactCheckResult {
   factCheckOutputDict: FactCheckResultResponse;
@@ -202,9 +203,10 @@ export const ResultAnalysis: React.FC = () => {
                   active={activeTab === "analysis"}
                 />
               </div>
-              <div className="flex flex-col-reverse lg:flex-row lg:mt-5 mt-2 gap-0 sm:gap-2">
-                <div className="w-full lg:w-2/3">
+              <div className="flex flex-col-reverse lg:flex-row lg:mt-5 mt-2 gap-0 sm:gap-6">
+                <div className="w-full lg:w-[50%]">
                   {/* Desktop vote buttons */}
+              <SponsoredAd />
                   <div className="lg:flex gap-4 hidden">
                     <VoteButton
                       type="supporting"
@@ -269,7 +271,7 @@ export const ResultAnalysis: React.FC = () => {
 
                 {/* Statement Analysis */}
                 <div className="flex flex-col items-start w-full lg:w-2/3">
-                  <div className="hidden lg:block w-full">
+                  <div className="hidden lg:block w-full ">
                     <StatementAnalysis />
                   </div>
                 </div>

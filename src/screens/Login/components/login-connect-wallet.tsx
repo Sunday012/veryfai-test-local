@@ -1,8 +1,9 @@
-import Spinner from '@/components/loader/loading-spinner';
-import { Button } from '@/components/ui/button';
+// import Spinner from '@/components/loader/loading-spinner';
+// import { Button } from '@/components/ui/button';
 import { CloseButton } from '@/screens/Register/Register-login';
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+// import { useState } from 'react'
+// import { useNavigate } from 'react-router-dom';
 
 type ConnectWalletType = {
     closeForm: () => void;
@@ -10,17 +11,17 @@ type ConnectWalletType = {
     handleRegister: () => void;
   };
 export const LoginConnectWallet = ({ closeForm, handleRegister }: ConnectWalletType) => {
-    const navigate = useNavigate()
-    const [selectedWallet, setSelectedWallet] = useState<string | null>(null);
-    const [isLoading, setIsLoading] = useState(false);
+    // const navigate = useNavigate()
+    // const [selectedWallet, setSelectedWallet] = useState<string | null>(null);
+    // const [isLoading, setIsLoading] = useState(false);
   
-    const handleLogin = () => {
-      setIsLoading(true);
-      setTimeout(() => {
-        setIsLoading(false);
-        navigate("/dashboard");
-      }, 2000);
-    };
+    // const handleLogin = () => {
+    //   setIsLoading(true);
+    //   setTimeout(() => {
+    //     setIsLoading(false);
+    //     navigate("/dashboard");
+    //   }, 2000);
+    // };
   
     return (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-4">
@@ -39,7 +40,7 @@ export const LoginConnectWallet = ({ closeForm, handleRegister }: ConnectWalletT
             <div className="mt-3">
               <h1 className="font-medium text-[#4B5563] pb-3 text-sm sm:text-base">Select wallet to login</h1>
               <div className="flex flex-col gap-2 sm:gap-[12px] max-h-[40vh] overflow-y-auto scrollbar-hide pr-1">
-                <SelectWallet
+                {/* <SelectWallet
                   name="MetaMask"
                   imgSrc="/metamask.svg"
                   isSelected={selectedWallet === "MetaMask"}
@@ -68,15 +69,18 @@ export const LoginConnectWallet = ({ closeForm, handleRegister }: ConnectWalletT
                   imgSrc="/binance.svg"
                   isSelected={selectedWallet === "Binance web3 wallet"}
                   onSelect={() => setSelectedWallet("Binance web3 wallet")}
-                />
+                /> */}
               </div>
-              <Button
+              {/* <Button
                 disabled={!selectedWallet || isLoading}
                 className={`uppercase w-full rounded-[12px] ${!selectedWallet || isLoading ? "bg-[#9CA3AF] hover:bg-[#9CA3AF]" : "bg-[#1E90FF] hover:bg-[#1E90FF]"} h-[40px] sm:h-[48px] lg:h-[64px] text-sm sm:text-base lg:text-[20px] font-semibold mt-4 sm:mt-6`}
                 onClick={handleLogin}
               >
                 {isLoading ? <Spinner /> : "Login"}
-              </Button>
+              </Button> */}
+            <div className="w-full flex items-center justify-center">
+            <ConnectButton />
+            </div>
               <div className='flex gap-2 items-center justify-center mt-2'>
                 <p className='text-[20px]'>Don't have an account?</p>
                 <div role='button' onClick={handleRegister} className='text-[#1E90FF] uppercase'>Register</div>

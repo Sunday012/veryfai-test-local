@@ -64,3 +64,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: "Regular";
+  src: url("./assets/fonts/Alfa_Slab_One/AlfaSlabOne-Regular.ttf") format(truetype);
+}
