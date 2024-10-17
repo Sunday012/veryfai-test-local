@@ -16,6 +16,7 @@ import { EthStakeInput } from "./eth-stake-input";
 import { longText } from "./stake-n-earn";
 import { ReadMoreText } from "@/components/read-more-text/read-more-text";
 import { useNavigate } from "react-router-dom";
+import { useSearchStore } from "@/zustand/search-store";
 
 type ConnectWalletType = {
   closeForm: () => void;
@@ -25,7 +26,7 @@ type ConnectWalletType = {
 export const ConnectWallet = ({ closeForm }: ConnectWalletType) => {
   const navigate = useNavigate()
   const [stakeInputValue, setStakeInputValue] = useState<string | undefined>(undefined);
-  const [isStakeSuccessful, setIsStakeSuccessful] = useState(false);
+  const {isStakeSuccessful, setIsStakeSuccessful} = useSearchStore();
   const {isConnected} = useAccount()
   // const CONTRACT_ADDRESS = process.env.VITE_CONTRACT_ADDRESS;
   const {  writeContractAsync } = useWriteContract()
@@ -56,7 +57,8 @@ export const ConnectWallet = ({ closeForm }: ConnectWalletType) => {
         args: [],
         value: ether,
       });
-      setIsStakeSuccessful(false);
+      setIsStakeSuccessful(true);
+      navigate("/dashboard")
     } catch (error) {
       console.error("Error while staking:", error);
       alert("An error occurred while staking. Please try again.");

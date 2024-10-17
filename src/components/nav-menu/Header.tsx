@@ -8,7 +8,7 @@ import { useSearchStore } from "@/zustand/search-store";
 // import { FactCheckingService } from "@/api/api-service/FactCheck";
 
 export const Header = () => {
-  const { setShowVerifierForm } = useSearchStore();
+  const { setShowVerifierForm, setShowConnectWallet, isStakeSuccessful } = useSearchStore();
 
   //@ts-ignore
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -21,7 +21,11 @@ export const Header = () => {
 //   };
 
   const handleVerifierClick = () => {
-    setShowVerifierForm(true);
+    if (isStakeSuccessful) {
+      setShowConnectWallet(true);
+    } else {
+      setShowVerifierForm(true);
+    }
   };
 
 //   const handleCheck = useCallback(async () => {

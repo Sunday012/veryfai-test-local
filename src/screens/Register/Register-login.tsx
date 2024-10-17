@@ -6,6 +6,7 @@ import Spinner from "@/components/loader/loading-spinner";
 import { ConnectWallet } from "./component/connect-wallet";
 import { StakeNEarn } from "./component/stake-n-earn";
 import { LoginConnectWallet } from "../Login/components/login-connect-wallet";
+import { useSearchStore } from "@/zustand/search-store";
 
 type RegisterLoginProps = {
   closeForm: () => void;
@@ -13,7 +14,7 @@ type RegisterLoginProps = {
 
 export const RegisterLogin: React.FC<RegisterLoginProps> = ({ closeForm }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [showConnectWallet, setShowConnectWallet] = useState(false);
+  const { showConnectWallet, setShowConnectWallet } = useSearchStore();
   const [showLoginConnectWallet, setShowLoginConnectWallet] = useState(false);
   const [showStakeNEarn, setShowStakeNEarn] = useState(false);
 
